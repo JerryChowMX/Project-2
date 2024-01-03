@@ -1,0 +1,37 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KorolyovaLara//TeamProject-2.git"
+  },
+  "author": "Larysa Korolyova, Tinku Bansal, Sean Mckay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KorolyovaLara//TeamProject-2/issues"
+  },
+  "homepage": "https://github.com/KorolyovaLara//TeamProject-2#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0"
+  }
+}
