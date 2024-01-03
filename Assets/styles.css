@@ -1,0 +1,353 @@
+*{
+  font-family: poppins, serif;
+}
+
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+.fullContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-image: url(./Images/Log-in_chef.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.elementsContainer{
+  background-color: white;
+  opacity: 0.75;
+  width: 500px;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all ease 0.9s;
+}
+
+.elementsContainer:hover{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5 );
+}
+
+.formContainer{
+  width: 70%;
+  padding: 15px;
+  max-height: fit-content;
+}
+
+.formContainer h1{
+  font-weight: 800;
+}
+
+.formContentContainer{
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+}
+
+.formContentContainer button{
+  background-color: black;
+  color: white;
+  padding: 8px;
+  border: none;
+  font-size: medium;
+  margin-bottom: 10px;
+  transition: all ease 0.9s;
+}
+
+.formContentContainer button:hover{
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  color: black;
+}
+
+.formControlContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.formControlContainer label{
+  font-size: larger;
+  font-weight: 400;
+}
+
+.formControlContainer input{
+  padding: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all ease 0.6s;
+}
+
+.formControlContainer input::placeholder{
+  color: white;
+}
+
+.formControlContainer input:focus{
+  outline: none;
+}
+
+.formControlContainer input:hover{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: grey;
+}
+
+
+.rememberMeContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.rememberMeContainer label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.rememberMeContainer label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-color: rgba(0, 0, 0, 0.842);
+    content: '✔'; 
+    color: white;
+    text-align: center;
+    line-height: 25px; 
+}
+
+/* Error Messages Styling */
+
+.formControlContainer small {
+  color: red;
+  font-size: 12px; 
+  margin-top: 2.5px; 
+  height: 0; 
+  overflow: hidden; 
+  visibility: hidden; 
+  opacity: 0; 
+  transition: visibility 0s, opacity 0.6s linear, height 0.6s linear; 
+}
+
+.formControlContainer.error small {
+  visibility: visible; 
+  opacity: 1; 
+  height: auto; 
+}
+
+.formControlContainer.error input {
+  background-color: rgba(197, 197, 197, 0.404);
+}
+
+.formControlContainer.error input::placeholder {
+  color: red; 
+}
+
+.formControlContainer.success input {
+  color: green;
+}
+
+/* Nav Bar */
+
+.navbar {
+    background-color: white;
+    overflow: hidden;
+    position: sticky; /* Sticky position */
+    top: 0; /* Position the navbar at the top of the page */
+    z-index: 1000; /* Ensure navbar is on top of other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list li {
+    float: left;
+}
+
+.nav-list li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: all ease 0.6s;
+}
+
+/* Change the link color on hover */
+.nav-list li a:hover {
+    background-color: black;
+    color: white;
+}
+
+.navbar img{
+  width: 200px;
+  height: 100px;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: white;
+    color: black;
+    padding: 20px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10%;
+    text-align: left;
+}
+
+.footer-section h3 {
+    color: black;
+    margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section a {
+    color: #bbb;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+.footer-section a:hover {
+    color: black;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}  
+
+/* Mobile-friendly design */
+
+@media screen and (max-width: 600px) {
+    /* Navbar adjustments */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar img {
+        width: 120px; /* Smaller logo */
+        margin: 0 10px; /* Add some margin */
+    }
+    .nav-list {
+        width: 100%;
+        flex-direction: column;
+        align-items: start;
+    }
+    .nav-list li {
+        width: 100%;
+    }
+    .nav-list li a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 10px 15px;
+    }
+
+    /* Full container */
+    .fullContainer {
+        background-size: auto 100%; /* Adjust background */
+    }
+
+    /* Form and Elements Container */
+    .elementsContainer {
+        width: 90%; /* Full width with some margin */
+        margin: 20px auto; /* Add some top margin */
+        box-shadow: none; /* Optional: remove box-shadow */
+    }
+    .formContainer {
+        padding: 10px;
+    }
+    .formContentContainer button {
+        font-size: larger; /* Larger font for readability */
+        padding: 12px 20px; /* Bigger button for easier interaction */
+    }
+
+    /* Input and Label adjustments */
+    .formControlContainer label {
+        font-size: medium;
+    }
+    .formControlContainer input {
+        font-size: medium; /* Larger font for inputs */
+    }
+
+    /* Footer adjustments */
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-section {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .footer-bottom {
+        font-size: smaller;
+    }
+  }
+/* General styles for small screens */
+@media screen and (max-width: 1260px) {
+  .elementsContainer {
+    width: 90%; /* Adjust width */
+  }
+
+  .formContainer {
+    width: 80%; /* Adjust width */
+  }
+
+  .navbar img {
+    width: 150px; /* Adjust logo size */
+  }
+
+  .navbar .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar .nav-list li a {
+    padding: 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+}
