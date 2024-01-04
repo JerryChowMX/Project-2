@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chef's Board</title>
+  <link rel="stylesheet" href="./Assets/stylesHomePage.css">
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <!-- Navigation Bar Content -->
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Welcome to the Chef's Board!</h1>
+    <section>
+      <h2>Share Your Recipe</h2>
+      <form method="POST" action="/upload" enctype="multipart/form-data">
+        <label for="title">Recipe Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter the recipe title" required>
+
+        <label for="description">Recipe Description:</label>
+        <textarea id="description" name="description" placeholder="Describe your recipe" required></textarea>
+
+        <label for="image">Recipe Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+
+        <button type="submit">Post Recipe</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Recipes</h2>
+      <!-- Recipes will be dynamically inserted here by Handlebars -->
+      {{#each recipes}}
+      <article>
+        <h3>{{this.title}}</h3>
+        <img src="{{this.imageUrl}}" alt="{{this.title}}">
+        <p>{{this.description}}</p>
+        <!-- Add more recipe details here -->
+      </article>
+      {{/each}}
+    </section>
+  </main>
+
+  <footer>
+    <!-- Footer Content -->
+  </footer>
+
+  <!-- Add your JavaScript files here -->
+</body>
+
+</html>

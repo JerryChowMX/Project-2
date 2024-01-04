@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Redirect to another page if form is valid
     if (isFormValid()) {
-      window.location.href = 'https://mx.linkedin.com/in/gerardo-garza-castilla-a5440419b';
+      window.location.href = '/';
     }
   });
 
