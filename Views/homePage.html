@@ -21,9 +21,7 @@
     <nav>
       <!-- Navigation Bar Content -->
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="./layouts/main.html"> Main </a></li>
       </ul>
     </nav>
   </header>
@@ -40,7 +38,11 @@
         <textarea id="description" name="description" placeholder="Describe your recipe" required></textarea>
 
         <label for="image">Recipe Image:</label>
-        <input type="file" id="image" name="image" accept="image/*" required>
+
+        <label for="image" class="custom-file-upload">
+          Choose File
+        </label>
+        <input type="file" id="image" name="image" accept="image/*" style="display: none;" />
 
         <button type="submit">Post Recipe</button>
       </form>
