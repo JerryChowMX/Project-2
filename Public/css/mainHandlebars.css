@@ -1,0 +1,76 @@
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-image: url('../Images/Mexican169Chef.png'); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* Style for the transparent background box */
+.transparent-background {
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 40px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+h1, h3 {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+
+/* Container for buttons */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Styles the buttons */
+button {
+    padding: 10px 20px;
+    background-color: #000000; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: ease all 0.6s;
+}
+
+
+button:hover {
+    background-color: #333333; 
+}
+
+/* Style the paragraph */
+p {
+    margin: 20px 0;
+}
+
+*{
+  font-family: poppins, serif;
+}
+
+button a {
+    color: white; /* Match the text color of the button */
+    text-decoration: none; /* Remove underline from links */
+    display: block; /* Make the link fill the entire button area */
+    height: 100%; /* Ensure it covers the full height of the button */
+    width: 100%; /* Ensure it covers the full width of the button */
+    line-height: initial; /* Adjust line height to match the button's height */
+    text-align: center; /* Center the text inside the button */
+}
+
+/* Adjust the button hover effect */
+button:hover, button:hover a {
+    background-color: #333333; /* Change background on hover */
+    color: white; /* Ensure text color remains white on hover */
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chefify Main</title>
+  <link rel="stylesheet" href="../../Public/css/mainHandlebars.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header>
+    <div class="transparent-background">
+      <h1>Welcome to Chefify</h1>
+      <h3>Please Log in to Continue</h3>
+      <div class="buttons-container">
+        {{#if signed_up}}
+          <a href="../homePage.handlebars"> Home Page </a>
+        {{else}}
+        <button>
+         <a href="../logIn.html"> Sign Up </a> 
+        </button>
+        {{/if}}
+      </div>
+    </div>
+  </header>
+
+  <script src="../../Public/js/"></script> 
+
+</body>
+
+</html>

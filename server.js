@@ -4,7 +4,7 @@ const { engine } = require('express-handlebars');
 const app = express();
 const port = 3000;
 
-app.engine('handlebars', engine({ defaultLayout: false }));
+app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 
 // Middleware para servir archivos estáticos
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Ruta GET para la página de inicio de sesión
 app.get('/login', (req, res) => {
   console.log('Accessing /login route');
-  res.sendFile(__dirname + '/Public/logIn.html');
+  res.sendFile(__dirname + '../Public/logIn.html');
   console.log('logIn.html file served.');
 });
 
@@ -26,16 +26,13 @@ app.post('/login', (req, res) => {
   console.log('Login form submitted.');
   const { username, email, password } = req.body;
   console.log('Login credentials:', username, email, password);
-
-  // Aquí debería ir tu lógica de validación de las credenciales
-  // Por ahora, solo redirigimos a la página principal
-  res.redirect('/');
+  res.redirect('../Views/homePage.handlebars');
 });
 
 // Ruta GET para la página principal (usando Handlebars)
 app.get('/', (req, res) => {
   console.log('Accessing root (/) route');
-  res.render('homePage');
+  res.render('../Views/homePage.handlebars');
   console.log('homePage rendered.');
 });
 

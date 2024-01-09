@@ -13,7 +13,7 @@ body, ul {
   align-items: center;
   margin: 0;
   padding: 0;
-  background-image: url(./Images/Log-in_chef.png);
+  background-image: url(../Images/Log-in_chef.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -174,8 +174,8 @@ input[type="checkbox"]:checked + label::before {
 .navbar {
     background-color: white;
     overflow: hidden;
-    position: sticky; /* Sticky position */
-    top: 0; /* Position the navbar at the top of the page */
+    position: sticky; 
+    top: 0; 
     z-index: 1000; /* Ensure navbar is on top of other content */
     display: flex;
     justify-content: center;
@@ -255,14 +255,13 @@ footer {
 /* Mobile-friendly design */
 
 @media screen and (max-width: 600px) {
-    /* Navbar adjustments */
     .navbar {
         flex-direction: column;
         align-items: flex-start;
     }
     .navbar img {
-        width: 120px; /* Smaller logo */
-        margin: 0 10px; /* Add some margin */
+        width: 120px; 
+        margin: 0 10px; 
     }
     .nav-list {
         width: 100%;
@@ -281,21 +280,21 @@ footer {
 
     /* Full container */
     .fullContainer {
-        background-size: auto 100%; /* Adjust background */
+        background-size: auto 100%; 
     }
 
     /* Form and Elements Container */
     .elementsContainer {
-        width: 90%; /* Full width with some margin */
-        margin: 20px auto; /* Add some top margin */
-        box-shadow: none; /* Optional: remove box-shadow */
+        width: 90%; 
+        margin: 20px auto; 
+        box-shadow: none; 
     }
     .formContainer {
         padding: 10px;
     }
     .formContentContainer button {
-        font-size: larger; /* Larger font for readability */
-        padding: 12px 20px; /* Bigger button for easier interaction */
+        font-size: larger; 
+        padding: 12px 20px; 
     }
 
     /* Input and Label adjustments */
@@ -303,7 +302,7 @@ footer {
         font-size: medium;
     }
     .formControlContainer input {
-        font-size: medium; /* Larger font for inputs */
+        font-size: medium; 
     }
 
     /* Footer adjustments */
@@ -321,15 +320,15 @@ footer {
 /* General styles for small screens */
 @media screen and (max-width: 1260px) {
   .elementsContainer {
-    width: 90%; /* Adjust width */
+    width: 90%; 
   }
 
   .formContainer {
-    width: 80%; /* Adjust width */
+    width: 80%; 
   }
 
   .navbar img {
-    width: 150px; /* Adjust logo size */
+    width: 150px; 
   }
 
   .navbar .nav-list {
