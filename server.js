@@ -1,41 +1,47 @@
 const express = require('express');
-const { engine } = require('express-handlebars');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+const path = require('path');
 
 const app = express();
-const port = 3000;
 
-app.engine('handlebars', engine());
+// Set up Handlebars
+app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-// Middleware para servir archivos estáticos
-app.use(express.static('Public'));
-console.log('Static files middleware set up for Public directory.');
+// Set up session middleware
+app.use(session({
+  secret: 'your_secret_key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true } // use secure: true in production with HTTPS
+}));
 
-// Middleware for parsing form data
-app.use(express.urlencoded({ extended: true }));
+// Define a middleware to check user's login status
+const checkAuth = (req, res, next) => {
+  if (req.session.userId) {
+    // User is logged in
+    req.isUserSignedIn = true;
+  } else {
+    // User is not logged in
+    req.isUserSignedIn = false;
+  }
+  next();
+};
 
-// Ruta GET para la página de inicio de sesión
-app.get('/login', (req, res) => {
-  console.log('Accessing /login route');
-  res.sendFile(__dirname + '../Public/logIn.html');
-  console.log('logIn.html file served.');
-});
+// Apply the middleware to all routes
+app.use(checkAuth);
 
-// Ruta POST para manejar el envío del formulario de inicio de sesión
-app.post('/login', (req, res) => {
-  console.log('Login form submitted.');
-  const { username, email, password } = req.body;
-  console.log('Login credentials:', username, email, password);
-  res.redirect('../Views/homePage.handlebars');
-});
+// Serve static files from the 'Public' directory
+app.use(express.static(path.join(__dirname, 'Public')));
 
-// Ruta GET para la página principal (usando Handlebars)
+// Define your routes
 app.get('/', (req, res) => {
-  console.log('Accessing root (/) route');
-  res.render('../Views/homePage.handlebars');
-  console.log('homePage rendered.');
+  res.render('main', { signed_up: req.isUserSignedIn });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
