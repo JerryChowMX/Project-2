@@ -60,17 +60,17 @@ p {
 }
 
 button a {
-    color: white; /* Match the text color of the button */
-    text-decoration: none; /* Remove underline from links */
-    display: block; /* Make the link fill the entire button area */
-    height: 100%; /* Ensure it covers the full height of the button */
-    width: 100%; /* Ensure it covers the full width of the button */
-    line-height: initial; /* Adjust line height to match the button's height */
-    text-align: center; /* Center the text inside the button */
+    color: white; 
+    text-decoration: none; 
+    display: block; 
+    height: 100%; 
+    width: 100%; 
+    line-height: initial; 
+    text-align: center; 
 }
 
 /* Adjust the button hover effect */
 button:hover, button:hover a {
-    background-color: #333333; /* Change background on hover */
-    color: white; /* Ensure text color remains white on hover */
+    background-color: #333333; 
+    color: white; 
 }

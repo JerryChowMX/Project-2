@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Redirect to another page if form is valid
     if (isFormValid()) {
-      window.location.href = '../../Views/homepage.handlebars';
+      window.location.href = '../Views/homePage.html';
     }
   });
 
