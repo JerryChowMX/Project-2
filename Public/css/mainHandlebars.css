@@ -73,3 +73,23 @@ button a:hover {
 p {
   margin: 20px 0;
 }
+
+/* Anchor button styles */
+.button-link {
+  padding: 10px 20px;
+  background-color: black; 
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease all 0.6s;
+}
+
+/* Anchor button hover effect */
+.button-link:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5 );
+ 
+}

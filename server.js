@@ -16,32 +16,40 @@ app.set('views', path.join(__dirname, 'Views'));
 
 // Set up session middleware with options
 app.use(session({
-  secret: process.env.SESSION_SECRET, // Use a secret from .env for session encryption
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: process.env.NODE_ENV === 'production' } 
+  cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
 
 // Define a middleware to check user's login status
 const checkAuth = (req, res, next) => {
-  req.isUserSignedIn = !!req.session.userId; 
+  req.isUserSignedIn = !!req.session.userId;
   next();
 };
 
 // Apply the checkAuth middleware to all routes
 app.use(checkAuth);
 
-// Serve static files from the 'public' directory
+// Serve static files from the 'Public' directory
 app.use(express.static(path.join(__dirname, 'Public')));
 
-// Define the home route
+// Define the route for the home page
 app.get('/', (req, res) => {
-  res.render('main', { layout: 'main', signed_up: req.isUserSignedIn });
+  if (req.isUserSignedIn) {
+    res.render('homePage'); // Render the homePage.handlebars view if the user is signed in
+  } else {
+    res.redirect('/logIn'); // Redirect to the login page if the user is not signed in
+  }
 });
 
-// Define the route for the sign-up page
-app.get('/signup', (req, res) => {
-  res.render('logIn', { layout: 'main' });
+// Define the route for the login/sign-up page
+app.get('/logIn', (req, res) => {
+  if (!req.isUserSignedIn) {
+    res.render('logIn'); // Render the logIn.handlebars view if the user is not signed in
+  } else {
+    res.redirect('/'); // Redirect to the home page if the user is already signed in
+  }
 });
 
 // Start the server on the specified port
