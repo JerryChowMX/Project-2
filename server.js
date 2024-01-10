@@ -1,44 +1,51 @@
 const express = require('express');
+const session = require('express-session');
 const { engine } = require('express-handlebars');
+const path = require('path');
+require('dotenv').config();
 
 const app = express();
-const port = 3000;
 
-app.engine('handlebars', engine({ defaultLayout: false }));
+// Set up Handlebars with the correct paths for 'layoutsDir'
+app.engine('handlebars', engine({
+  layoutsDir: path.join(__dirname, 'Views', 'layouts'),
+}));
 app.set('view engine', 'handlebars');
+// Set the directory where the views (Handlebars templates) will be looked for
+app.set('views', path.join(__dirname, 'Views'));
 
-// Middleware para servir archivos estáticos
-app.use(express.static('Public'));
-console.log('Static files middleware set up for Public directory.');
+// Set up session middleware with options
+app.use(session({
+  secret: process.env.SESSION_SECRET, // Use a secret from .env for session encryption
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: process.env.NODE_ENV === 'production' } 
+}));
 
-// Middleware for parsing form data
-app.use(express.urlencoded({ extended: true }));
+// Define a middleware to check user's login status
+const checkAuth = (req, res, next) => {
+  req.isUserSignedIn = !!req.session.userId; 
+  next();
+};
 
-// Ruta GET para la página de inicio de sesión
-app.get('/login', (req, res) => {
-  console.log('Accessing /login route');
-  res.sendFile(__dirname + '/Public/logIn.html');
-  console.log('logIn.html file served.');
-});
+// Apply the checkAuth middleware to all routes
+app.use(checkAuth);
 
-// Ruta POST para manejar el envío del formulario de inicio de sesión
-app.post('/login', (req, res) => {
-  console.log('Login form submitted.');
-  const { username, email, password } = req.body;
-  console.log('Login credentials:', username, email, password);
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'Public')));
 
-  // Aquí debería ir tu lógica de validación de las credenciales
-  // Por ahora, solo redirigimos a la página principal
-  res.redirect('/');
-});
-
-// Ruta GET para la página principal (usando Handlebars)
+// Define the home route
 app.get('/', (req, res) => {
-  console.log('Accessing root (/) route');
-  res.render('homePage');
-  console.log('homePage rendered.');
+  res.render('main', { layout: 'main', signed_up: req.isUserSignedIn });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+// Define the route for the sign-up page
+app.get('/signup', (req, res) => {
+  res.render('logIn', { layout: 'main' });
+});
+
+// Start the server on the specified port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

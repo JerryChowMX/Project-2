@@ -1,0 +1,194 @@
+/* Reset some basic elements */
+body, h1, h2, h3, p, form, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply a universal box-sizing rule */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Use Poppins as the primary font family */
+* {
+  font-family: 'Poppins', serif;
+}
+
+/* Body with a background image, centered content, and standard text styles */
+body {
+  font-family: poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #f8f8f8;
+  line-height: 1.6;
+  padding: 20px;
+  background-image: url(../Images/TacoStand2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Navigation bar styles */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  transition: ease all 0.6s;
+  padding: 10px;
+}
+
+nav ul li a:hover {
+  color: white;
+  background-color: black;
+}
+
+/* Main content container */
+main {
+  width: 80%;
+  max-width: 1200px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* H1 styles */
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 40px;
+}
+
+/* Form container with centered form elements aligned to the left */
+.formContainer {
+  width: 70%;
+  padding: 15px;
+  max-height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Header within form */
+.formContainer h1 {
+  font-weight: 800;
+}
+
+/* Form label styles */
+form label {
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+/* Input and textarea styles */
+form input[type="text"],
+form textarea,
+form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form input, textarea{
+  background-color: rgba(255, 255, 255, 0.521);
+  font-size:medium;
+}
+
+/* Button styles within the form */
+.formContentContainer button,
+form button {
+  background-color: black;
+  color: white;
+  padding: 8px;
+  border: none;
+  font-size: medium;
+  margin-bottom: 10px;
+  transition: all ease 0.9s;
+}
+
+/* Hover effect for buttons within the form */
+.formContentContainer button:hover,
+form button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  color: black;
+}
+
+/* Article styles for posts or entries */
+article {
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/* Article header styles */
+article h3 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+/* Image styles within articles */
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Paragraph styles within articles */
+article p {
+  color: #666;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.8em;
+  color: #aaa;
+}
+
+/* Styles for the custom file upload label */
+.custom-file-upload {
+  display:block;
+  padding: 12px 30px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.616);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: all 0.6s ease;
+  font-size: 1em;
+  color: #333;
+  margin: 10px;
+  text-align: center;
+}
+
+/* Hover effect for the custom file upload label */
+.custom-file-upload:hover {
+  background-color: rgba(0, 0, 0, 0.562);
+  color: white;
+}

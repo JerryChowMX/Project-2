@@ -5,18 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chef's Board</title>
-  <link rel="stylesheet" href="./Public/Assets/stylesHomePage.css">
+  <link rel="stylesheet" href="../Public/css/stylesHomePage.css">
+
+  <!-- Google Fonts, Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
 </head>
 
 <body>
 
   <header>
     <nav>
-      <!-- Navigation Bar Content -->
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="./layouts/main.html"> Main </a></li>
       </ul>
     </nav>
   </header>
@@ -33,7 +37,11 @@
         <textarea id="description" name="description" placeholder="Describe your recipe" required></textarea>
 
         <label for="image">Recipe Image:</label>
-        <input type="file" id="image" name="image" accept="image/*" required>
+
+        <label for="image" class="custom-file-upload">
+          Choose File
+        </label>
+        <input type="file" id="image" name="image" accept="image/*" style="display: none;" />
 
         <button type="submit">Post Recipe</button>
       </form>
@@ -52,10 +60,6 @@
       {{/each}}
     </section>
   </main>
-
-  <footer>
-
-  </footer>
 
 
 </body>
