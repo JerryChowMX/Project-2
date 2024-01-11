@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chefify Main</title>
-  <link rel="stylesheet" href="/css/mainHandlebars.css">
+  <link rel="stylesheet" href="../../Public/css/mainHandlebars.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,15 +23,15 @@
       <h3> Select to continue</h3>
       <div class="buttons-container">
         {{#if signed_up}}
-        <a href="../homePage.handlebars" class="button-link">Home Page</a>
+        <a href="../../Views/homePage.html" class="button-link">Home Page</a>
         {{else}}
-        <a href="../logIn" class="button-link">Sign Up</a>
+        <a href="../../Views/logIn.html" class="button-link">Sign Up</a>
         {{/if}}
       </div>
     </div>
   </header>
 
-  <script src="/js/main.js"></script>
+  <script src="../../Public/js/main.js"></script>
 
 </body>
 

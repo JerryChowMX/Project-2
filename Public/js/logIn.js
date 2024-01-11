@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('rememberMe') === 'true') {
     username.value = localStorage.getItem('username');
     email.value = localStorage.getItem('email');
-    password.value = localStorage.getItem('password')
+    password.value = localStorage.getItem('password');
     rememberMeCheckbox.checked = true;
   }
 
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Redirect to another page if form is valid
     if (isFormValid()) {
-      window.location.href = '/homePage';
+      window.location.href = '../Views/homePage.html';
     }
   });
 
@@ -100,3 +100,4 @@ document.addEventListener('DOMContentLoaded', () => {
       .some(container => container.classList.contains('error'));
   }
 });
+

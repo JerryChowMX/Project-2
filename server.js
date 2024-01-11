@@ -36,10 +36,10 @@ app.use(express.static(path.join(__dirname, 'Public')));
 
 // Define the route for the home page
 app.get('/', (req, res) => {
-  if (req.isUserSignedIn) {
+  if (!req.isUserSignedIn) {
     res.render('homePage'); // Render the homePage.handlebars view if the user is signed in
   } else {
-    res.redirect('/logIn'); // Redirect to the login page if the user is not signed in
+    res.redirect('/'); // Redirect to the login page if the user is not signed in
   }
 });
 
